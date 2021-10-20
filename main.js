@@ -12,6 +12,8 @@ const q10Buttons = document.querySelectorAll("[name='q10']");
 
 //Quiz
 submitButton.addEventListener("click", () =>{
+  submitButton.remove();
+  resultDiv.innerHTML ="";
   let questionsAnswered = 0;
   let score = 0;
 
@@ -40,7 +42,10 @@ submitButton.addEventListener("click", () =>{
   }
   if (question10answerd) {
     questionsAnswered++;
-  }
+  };
+
+  //Print Result
+  result(score);
 });
 
 
@@ -63,3 +68,8 @@ darkLightModeButton.addEventListener("click", () => {
 
 
 //Quiz resetbutton
+const result = (score) => {
+  const resultText = document.createElement("h2");
+  resultText.innerText = `Your score is ${score}/10`;
+  resultDiv.appendChild(resultText);
+};
