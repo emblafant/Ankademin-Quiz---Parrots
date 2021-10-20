@@ -13,7 +13,6 @@ const q10Buttons = document.querySelectorAll("[name='q10']");
 
 //Quiz
 submitButton.addEventListener("click", () =>{
-  submitButton.remove();
   resultDiv.innerHTML ="";
   let questionsAnswered = 0;
   let score = 0;
@@ -46,7 +45,12 @@ submitButton.addEventListener("click", () =>{
   };
 
   //Print Result
-  result(score);
+  if (questionsAnswered === 2) { 
+    result(score);
+    submitButton.remove();
+  } else {
+    alert("Please answer all questions");
+  }
 });
 
 
@@ -68,7 +72,7 @@ darkLightModeButton.addEventListener("click", () => {
 });
 
 
-//Quiz resetbutton
+//Quiz Result Function
 const result = (score) => {
   const resultText = document.createElement("h2");
   resultText.innerText = `Your score is ${score}/10`;
