@@ -1,6 +1,7 @@
 //Buttons
 const submitButton = document.querySelector("#submit");
 const darkLightModeButton = document.querySelector("#darkLightMode");
+const resetButton = document.querySelector("#resetButton");
 
 //Misc Elements
 const resultDiv = document.querySelector("#resultDiv");
@@ -73,3 +74,9 @@ const result = (score) => {
   resultText.innerText = `Your score is ${score}/10`;
   resultDiv.appendChild(resultText);
 };
+
+
+//Reset Button
+resetButton.addEventListener("click", () => {
+  window.location.reload(false);
+});
