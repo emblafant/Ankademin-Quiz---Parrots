@@ -72,6 +72,11 @@ darkLightModeButton.addEventListener("click", () => {
 const result = (score) => {
   const resultText = document.createElement("h2");
   resultText.innerText = `Your score is ${score}/10`;
+  if (score > 10*0.75) {
+    resultText.style.color = "green";
+  } else if (score > 10/2) {
+    resultText.style.color = "orange";
+  }
   resultDiv.appendChild(resultText);
 };
 
