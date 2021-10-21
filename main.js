@@ -8,49 +8,104 @@ const resultDiv = document.querySelector("#resultDiv");
 
 //Answer buttons
 const q1Buttons = document.querySelectorAll("[name='q1']");
+const q2Buttons = document.querySelectorAll("[name='q2']");
+const q3Buttons = document.querySelectorAll("[name='q3']");
+const q4Buttons = document.querySelectorAll("[name='q4']");
+const q5Buttons = document.querySelectorAll("[name='q5']");
+const q6Buttons = document.querySelectorAll("[name='q6']");
+const q7Buttons = document.querySelectorAll("[name='q7']");
+const q8Buttons = document.querySelectorAll("[name='q8']");
+const q9Buttons = document.querySelectorAll("[name='q9']");
 const q10Buttons = document.querySelectorAll("[name='q10']");
 
 
 //Quiz
 submitButton.addEventListener("click", () =>{
   resultDiv.innerHTML ="";
+
   let questionsAnswered = 0;
   let score = 0;
 
-
-  //Question 1
-  q1Buttons.forEach((button) => {
+  const quizCounter = (button) => {
     if (button.checked && button.value === "true") {
       score++;
     }
     if (button.checked) {
-      questionsAnswered = +1;
+      questionsAnswered++;
     }
+  };
+
+  //Question 1
+  q1Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 2
+  q2Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 3
+  q3Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 4
+  q4Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 5
+  q5Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 6
+  q6Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 7
+  q7Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 8
+  q8Buttons.forEach((button) => {
+    quizCounter(button);
+  });
+
+  //Question 9
+  q9Buttons.forEach((button) => {
+    quizCounter(button);
   });
 
   //Question 10
   let question10total = 0;
   let question10answerd = false;
+
   q10Buttons.forEach((button) => {
     if (button.checked && button.value === "true") {
       question10total++;
+    };
+    if (button.checked) {
       question10answerd = true;
     };
   });
   if (question10total === 7) {
     score++;
-  }
+  };
   if (question10answerd) {
     questionsAnswered++;
   };
 
   //Print Result
-  if (questionsAnswered === 2) { 
+  if (questionsAnswered === 10) { 
     result(score);
     submitButton.remove();
   } else {
     alert("Please answer all questions");
-  }
+  };
 });
 
 
